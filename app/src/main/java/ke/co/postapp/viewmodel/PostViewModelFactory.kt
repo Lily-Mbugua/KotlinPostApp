@@ -1,4 +1,16 @@
 package ke.co.postapp.viewmodel
 
-class PostViewModelFactory {
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.postapp.repository.PostsRepository
+
+
+class PostsViewModelFactory(private val postsRepository: PostRepository): ViewModelProvider.Factory {
+
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(PostsViewModel::class.java)){
+            return PostsViewModel(postsRepository) as T
+        }
+        throw IllegalArgumentException("Unknown Viewmodel class")
+    }
 }

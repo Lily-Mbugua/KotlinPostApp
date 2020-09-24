@@ -1,8 +1,6 @@
 package ke.co.postapp.models
 
-class Post {
-    var userId:Int,
-    var id:Int,
-    var title:String,
-    var body:String
-}
+data class Post(val userId: Int,
+                val id: Int,
+                val title: String,
+                val body: String)
